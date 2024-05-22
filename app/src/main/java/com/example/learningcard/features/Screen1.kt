@@ -26,7 +26,7 @@ import com.example.learningcard.ui.theme.BlueMain
 fun Screen1() {
 
     Column(
-        modifier = Modifier
+        modifier = Modifier.fillMaxSize()
             .background(BlueMain)
     ) {
         LazyRow(
