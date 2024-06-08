@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.Uri
 import android.util.Log
 import com.example.learningcard.data.db.LearningDataBase
+import com.example.learningcard.data.model.Dict
 import com.example.learningcard.data.model.WordItem
 import com.example.learningcard.utils.CsvIo
 import kotlinx.coroutines.CoroutineDispatcher
@@ -50,18 +51,18 @@ class ImportRepository(
                         val rows = csvReader.rows()
                         csvReader.close()
 
-//                        val dictId = provider.dictDao().insertDict(
-//                            Dict(
-//                                id = 0,
-//                                title = f.nameWithoutExtension,
-//                                subtitle = null,
-//                                inside = 0,
-//                                current = 0,
-//                                wordId = 0
-//                            )
-//                        )
-//
-//                        importWordsInDict(rows, dictId)
+                        val dictId  = provider.dictDao.insertDict(
+                            Dict(
+                                id = 0,
+                                title = f.nameWithoutExtension,
+                                subtitle = null,
+                                inside = 0,
+                                current = false,
+                                wordId = 0
+                            )
+                        )
+
+                        importWordsInDict(rows, dictId)
                     }
                 } catch (e: Exception) {
                     Log.e(">>>>>>>", "Import dict", e)
@@ -89,20 +90,18 @@ class ImportRepository(
                 return@forEach
             }
 
-//            val word = WordItem(
-//                id = 0,
-//                name = nameWord,
-//                transcription = transliterateWord,
-//                translate = translateWord,
-//                term = null,
-//                checked = 0,
-//                dictId = dictId,
-//                inside = 0
-//            )
-//            try {
-//                provider.wordDao().insertWord(word)
-//            } catch (_: Exception) {
-//            }
+            val word = WordItem(
+                id = 0,
+                name = nameWord,
+                transcription = transliterateWord,
+                translate = translateWord,
+                isLearned = false,
+                dictionaryId = dictId,
+            )
+            try {
+                provider.wordDao.insertWord(word)
+            } catch (_: Exception) {
+            }
         }
     }
 }

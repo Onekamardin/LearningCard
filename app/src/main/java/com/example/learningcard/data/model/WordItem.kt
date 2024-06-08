@@ -1,14 +1,20 @@
 package com.example.learningcard.data.model
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "word_item")
 class WordItem(
-    @PrimaryKey
-    val id: Int? = null,
+    @PrimaryKey(autoGenerate = true)
+    val id: Long,
+
     val name: String,
     val translate: String,
+
+    @ColumnInfo(name = "transcription")
+    val transcription: String?,
+
     val isLearned: Boolean,
-    val dictionaryId: Int
+    val dictionaryId: Long
 )
