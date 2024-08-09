@@ -9,21 +9,26 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.learningcard.ui.theme.BlueMain
 import kotlinx.coroutines.launch
 
@@ -35,21 +40,55 @@ fun Screen1() {
     val pagerState = rememberPagerState(pageCount = { 10 })
     val coroutineScope = rememberCoroutineScope()
 
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(BlueMain)
+            .padding(top = 100.dp, start = 25.dp)
     ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Column {
+                Text(
+                    text = "Англо-русский",
+                    fontSize = 26.sp,
+                    color = Color.White,
+                    style = TextStyle(fontWeight = FontWeight.Bold)
+                )
+                Text(
+                    text = "Всего слов:",
+                    fontSize = 24.sp,
+                    color = Color.White,
+                )
+                Text(
+                    text = "Изучено слов:",
+                    fontSize = 24.sp,
+                    color = Color.White,
+                )
+            }
+            IconButton(
+                modifier = Modifier.padding(start = 100.dp),
+                onClick = {
+                }) {
+                Icon(
+                    Icons.Default.Menu,
+                    contentDescription = "111",
+                    tint = Color.White
+                )
+            }
+        }
+
+
         HorizontalPager(
             state = pagerState,
             pageSize = PageSize.Fill,
-            contentPadding = PaddingValues(top = 150.dp, start = 50.dp, end = 50.dp)
+            contentPadding = PaddingValues(top = 150.dp)
         ) { page ->
             UiWordItem()
         }
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
+            horizontalArrangement = Arrangement.SpaceAround
         ) {
             IconButton(
                 modifier = Modifier.padding(start = 35.dp),
@@ -59,7 +98,7 @@ fun Screen1() {
                     }
                 }) {
                 Icon(
-                    Icons.Default.ArrowBack,
+                    Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = "word_back",
                     tint = Color.White
                 )
@@ -68,7 +107,7 @@ fun Screen1() {
                 modifier = Modifier.padding(end = 35.dp),
                 onClick = {
                     coroutineScope.launch {
-                         pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                        pagerState.animateScrollToPage(pagerState.currentPage + 1)
                     }
                 }) {
                 Icon(

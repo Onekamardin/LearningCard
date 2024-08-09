@@ -13,6 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -23,20 +25,44 @@ import com.example.learningcard.ui.theme.BlueWord
 @Composable
 fun UiWordItem() {
     Column(
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
-            .padding(end = 50.dp)
-            .height(450.dp)
-            .width(300.dp)
+            .padding(end = 25.dp)
+            .height(250.dp)
+            .width(450.dp)
             .clip(RoundedCornerShape(10.dp))
             .background(BlueWord)
     ) {
         Text(
+            modifier = Modifier.padding(start = 20.dp, top = 20.dp),
             text = "Word",
             fontSize = 30.sp,
             color = Color.White,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            style = TextStyle(fontWeight = FontWeight.Bold)
+        )
+        Text(
+            modifier = Modifier.padding(start = 20.dp),
+            text = "[transcription]",
+            fontSize = 28.sp,
+            color = Color.White,
+            textAlign = TextAlign.Center,
+
+            )
+        Text(
+            modifier = Modifier.padding(start = 20.dp),
+            text = "translate 1",
+            fontSize = 30.sp,
+            color = Color.White,
+            textAlign = TextAlign.Center,
+            style = TextStyle(fontWeight = FontWeight.Bold)
+        )
+        Text(
+            modifier = Modifier.padding(start = 20.dp),
+            text = "translate 2",
+            fontSize = 30.sp,
+            color = Color.White,
+            textAlign = TextAlign.Center,
+            style = TextStyle(fontWeight = FontWeight.Bold)
         )
     }
 }
