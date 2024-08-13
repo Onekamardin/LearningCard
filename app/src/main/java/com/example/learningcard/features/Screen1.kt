@@ -19,6 +19,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -45,8 +46,29 @@ fun Screen1() {
         modifier = Modifier
             .fillMaxSize()
             .background(BlueMain)
-            .padding(top = 100.dp, start = 25.dp)
+            .padding(top = 80.dp, start = 25.dp)
     ) {
+        Row(
+            modifier = Modifier.padding(bottom = 20.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "Изучение слов",
+                fontSize = 26.sp,
+                color = Color.White,
+                style = TextStyle(fontWeight = FontWeight.Bold)
+            )
+            IconButton(
+                modifier = Modifier.padding(start = 100.dp),
+                onClick = {
+                }) {
+                Icon(
+                    Icons.Default.Settings,
+                    contentDescription = "111",
+                    tint = Color.White
+                )
+            }
+        }
         Row(verticalAlignment = Alignment.CenterVertically) {
             Column {
                 Text(
