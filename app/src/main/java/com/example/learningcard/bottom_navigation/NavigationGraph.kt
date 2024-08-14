@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.learningcard.features.Screen1
+import com.example.learningcard.features.screen1.Screen1
 import com.example.learningcard.features.Screen2
 import com.example.learningcard.features.Screen3
 import com.example.learningcard.features.Screen4

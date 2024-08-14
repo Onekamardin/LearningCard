@@ -3,6 +3,8 @@ package com.example.learningcard.di
 import android.app.Application
 import android.content.Context
 import androidx.room.Room
+import com.example.learningcard.data.dao.DictDao
+import com.example.learningcard.data.dao.WordDao
 import com.example.learningcard.data.db.LearningDataBase
 import com.example.learningcard.data.repository.Repository
 import dagger.Module
@@ -23,10 +25,18 @@ object AppModule {
     }
 
 
+
+
     @Provides
     @Singleton
-    fun provideRepository(db: LearningDataBase): Repository {
-        return Repository(db.wordDao)
+    fun provideWordDao(db: LearningDataBase): WordDao {
+        return db.wordDao
+    }
+
+    @Provides
+    @Singleton
+    fun provideDictDao(db: LearningDataBase): DictDao {
+        return db.dictDao
     }
 }
 

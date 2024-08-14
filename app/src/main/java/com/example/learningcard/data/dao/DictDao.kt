@@ -13,8 +13,10 @@ interface DictDao {
     suspend fun insertDict(dict: Dict): Long
 
     @Query("SELECT * FROM dict ORDER BY title")
-    fun getDicts(): Flow<List<Dict>>
+    fun getAllDictionaries(): List<Dict>
 
     @Query("SELECT * FROM dict ORDER BY title LIMIT 1")
     fun getFirstDict(): Dict
+
+
 }

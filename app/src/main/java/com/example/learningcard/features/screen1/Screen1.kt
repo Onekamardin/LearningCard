@@ -1,4 +1,4 @@
-package com.example.learningcard.features
+package com.example.learningcard.features.screen1
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.learningcard.features.UiWordItem
 import com.example.learningcard.ui.theme.BlueMain
 import kotlinx.coroutines.launch
 

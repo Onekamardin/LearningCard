@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "word_item")
 class WordItem(
     @PrimaryKey(autoGenerate = true)
-    val id: Long,
+    val id: Long? = null,
 
     val name: String,
     val translate: String,

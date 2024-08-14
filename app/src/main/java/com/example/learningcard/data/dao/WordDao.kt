@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 interface WordDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertWord(wordItem: WordItem)
+    suspend fun insertWord(wordItem: WordItem): Long
 
     @Delete
     suspend fun deleteWord(wordItem: WordItem)
@@ -21,5 +21,5 @@ interface WordDao {
     fun getAllWords(): Flow<List<WordItem>>
 
     @Query("SELECT * FROM word_item WHERE id = :dictId")
-    fun getAllWordsById(dictId: Int): Flow<List<WordItem>>
+    fun getAllWordsById(dictId: Long): List<WordItem>
 }

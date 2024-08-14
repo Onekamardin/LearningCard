@@ -14,7 +14,7 @@ import kotlinx.parcelize.Parcelize
 data class Dict(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    val id: Long,
+    val id: Long? = null,
 
     @ColumnInfo(name = "title")
     val title: String,
