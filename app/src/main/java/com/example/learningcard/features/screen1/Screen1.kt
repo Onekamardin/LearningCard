@@ -100,8 +100,6 @@ fun Screen1() {
                 )
             }
         }
-
-
         HorizontalPager(
             state = pagerState,
             pageSize = PageSize.Fill,
