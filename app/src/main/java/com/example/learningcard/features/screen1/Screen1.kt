@@ -21,6 +21,7 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,17 +31,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.learningcard.features.UiWordItem
 import com.example.learningcard.ui.theme.BlueMain
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
-@Preview(showBackground = true)
 @Composable
-fun Screen1() {
+fun Screen1(
+    viewModel: Screen1ViewModel = hiltViewModel()
+) {
 
     val pagerState = rememberPagerState(pageCount = { 10 })
     val coroutineScope = rememberCoroutineScope()
+    val dictionaries = viewModel.dictionary.collectAsState(initial = emptyList())
+    val words = viewModel.words.collectAsState(initial = emptyList())
 
 
     Column(
