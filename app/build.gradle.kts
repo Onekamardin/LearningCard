@@ -56,20 +56,20 @@ dependencies {
 
 
     // Compose dependencies
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
-    implementation ("androidx.navigation:navigation-compose:2.7.7")
-    implementation ("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+    implementation (libs.androidx.lifecycle.viewmodel.compose)
+    implementation (libs.androidx.navigation.compose)
+    implementation (libs.androidx.constraintlayout.compose)
     // Dagger hilt
-    implementation ("com.google.dagger:hilt-android:2.51.1")
-    implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
-    kapt ("com.google.dagger:hilt-compiler:2.51.1")
-    kapt ("androidx.hilt:hilt-compiler:1.2.0")
+    implementation (libs.hilt.android)
+    implementation (libs.androidx.hilt.navigation.compose)
+    kapt (libs.hilt.compiler)
+    kapt (libs.androidx.hilt.compiler)
     // Room
-    implementation ("androidx.room:room-runtime:2.6.1")
-    implementation ("androidx.room:room-ktx:2.6.1")
-    kapt ("androidx.room:room-compiler:2.6.1")
+    implementation (libs.androidx.room.runtime)
+    implementation (libs.androidx.room.ktx)
+    kapt (libs.androidx.room.compiler)
     //bottom navigation
-    implementation("androidx.compose.material:material:1.5.4")
+    implementation(libs.androidx.material)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
