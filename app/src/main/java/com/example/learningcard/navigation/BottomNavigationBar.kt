@@ -1,4 +1,4 @@
-package com.example.learningcard.bottom_navigation
+package com.example.learningcard.navigation
 
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -9,15 +9,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.learningcard.ui.theme.BlueWord
 import com.example.learningcard.ui.theme.PurpleGrey80
 
+
 @Composable
-fun BottomNavigationBar(
-    navController: NavController
-) {
+fun BottomNavigationBar(navigationState: NavigationState) {
     val listBottomItem = listOf(
         BottomNavItem.Screen1,
         BottomNavItem.Screen2,
@@ -27,14 +25,14 @@ fun BottomNavigationBar(
     BottomNavigation(
         backgroundColor = Color.White
     ) {
-        val backStackEntry by navController.currentBackStackEntryAsState()
+        val backStackEntry by navigationState.navHostController.currentBackStackEntryAsState()
         val currentRoute = backStackEntry?.destination?.route
 
         listBottomItem.forEach { item ->
             BottomNavigationItem(
                 selected = currentRoute == item.route,
                 onClick = {
-                    navController.navigate(item.route)
+                    navigationState.navigateTo(item.route)
                 },
                 icon = {
                     Icon(
@@ -50,5 +48,4 @@ fun BottomNavigationBar(
             )
         }
     }
-
 }

@@ -1,4 +1,4 @@
-package com.example.learningcard.bottom_navigation
+package com.example.learningcard.navigation
 
 import com.example.learningcard.R
 
