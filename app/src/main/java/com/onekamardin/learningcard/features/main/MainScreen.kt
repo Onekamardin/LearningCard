@@ -1,14 +1,14 @@
-package com.example.learningcard.features.main
+package com.onekamardin.learningcard.features.main
 
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import com.example.learningcard.features.Screen2
-import com.example.learningcard.features.Screen3
-import com.example.learningcard.features.Screen4
-import com.example.learningcard.features.screen1.Screen1
-import com.example.learningcard.navigation.BottomNavigationBar
-import com.example.learningcard.navigation.NavigationGraph
-import com.example.learningcard.navigation.rememberNavigationState
+import com.onekamardin.learningcard.features.Screen2
+import com.onekamardin.learningcard.features.Screen3
+import com.onekamardin.learningcard.features.screen1.Screen1
+import com.onekamardin.learningcard.features.screen4.Screen4
+import com.onekamardin.learningcard.navigation.BottomNavigationBar
+import com.onekamardin.learningcard.navigation.NavigationGraph
+import com.onekamardin.learningcard.navigation.rememberNavigationState
 
 @Composable
 fun MainScreen() {

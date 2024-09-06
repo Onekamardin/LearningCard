@@ -1,11 +1,11 @@
-package com.example.learningcard.data.dao
+package com.onekamardin.learningcard.data.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.learningcard.data.model.WordItem
+import com.onekamardin.learningcard.data.model.WordItem
 import kotlinx.coroutines.flow.Flow
 
 @Dao

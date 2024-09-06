@@ -1,4 +1,4 @@
-package com.example.learningcard.features.screen1
+package com.onekamardin.learningcard.features.screen1
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -28,12 +28,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.learningcard.features.UiWordItem
-import com.example.learningcard.ui.theme.BlueMain
+import com.onekamardin.learningcard.features.UiWordItem
+import com.onekamardin.learningcard.ui.theme.BlueMain
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)

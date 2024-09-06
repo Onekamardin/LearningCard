@@ -1,11 +1,10 @@
-package com.example.learningcard.features.screen1
+package com.onekamardin.learningcard.features.screen1
 
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.learningcard.data.model.Dict
-import com.example.learningcard.data.model.WordItem
-import com.example.learningcard.data.repository.Repository
+import com.onekamardin.learningcard.data.model.Dict
+import com.onekamardin.learningcard.data.model.WordItem
+import com.onekamardin.learningcard.data.repository.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

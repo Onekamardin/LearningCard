@@ -1,4 +1,4 @@
-package com.example.learningcard.navigation
+package com.onekamardin.learningcard.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember

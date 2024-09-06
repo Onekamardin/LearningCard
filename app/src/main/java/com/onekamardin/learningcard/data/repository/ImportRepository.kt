@@ -1,12 +1,12 @@
-package com.example.learningcard.data.repository
+package com.onekamardin.learningcard.data.repository
 
 import android.content.Context
 import android.net.Uri
 import android.util.Log
-import com.example.learningcard.data.db.LearningDataBase
-import com.example.learningcard.data.model.Dict
-import com.example.learningcard.data.model.WordItem
-import com.example.learningcard.utils.CsvIo
+import com.onekamardin.learningcard.data.db.LearningDataBase
+import com.onekamardin.learningcard.data.model.Dict
+import com.onekamardin.learningcard.data.model.WordItem
+import com.onekamardin.learningcard.utils.CsvIo
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.sync.Mutex
@@ -24,14 +24,14 @@ class ImportRepository(
     private val scope: CoroutineScope,
     private val dispatcher: CoroutineDispatcher,
 ) {
-    suspend fun import(uri: Uri) {
+    suspend fun import() {
         withContext(dispatcher + scope.coroutineContext) {
             mutex.withLock {
                 try {
                     val restoreDir = File(context.externalCacheDir, "restore")
                     if (restoreDir.exists()) restoreDir.deleteRecursively()
                     restoreDir.mkdir()
-                    context.contentResolver.openInputStream(uri)?.use { stream ->
+                    context.assets.open("dicts.zip").use { stream ->
                         ZipInputStream(BufferedInputStream(stream)).use { zip ->
                             var entry = zip.nextEntry
                             while (entry != null) {
@@ -53,7 +53,7 @@ class ImportRepository(
 
                         val dictId  = provider.dictDao.insertDict(
                             Dict(
-                                id = 0,
+                                id = null,
                                 title = f.nameWithoutExtension,
                                 subtitle = null,
                                 inside = 0,
@@ -91,7 +91,7 @@ class ImportRepository(
             }
 
             val word = WordItem(
-                id = 0,
+                id = null,
                 name = nameWord,
                 transcription = transliterateWord,
                 translate = translateWord,
@@ -100,7 +100,8 @@ class ImportRepository(
             )
             try {
                 provider.wordDao.insertWord(word)
-            } catch (_: Exception) {
+            } catch (e: Exception) {
+                Log.e(">>>>>>", e.message.toString())
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.example.learningcard
+package com.onekamardin.learningcard
 
 import org.junit.Test
 

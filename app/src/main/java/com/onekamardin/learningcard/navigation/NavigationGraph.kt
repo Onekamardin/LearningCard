@@ -1,4 +1,4 @@
-package com.example.learningcard.navigation
+package com.onekamardin.learningcard.navigation
 
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween

@@ -1,4 +1,4 @@
-package com.example.learningcard.navigation
+package com.onekamardin.learningcard.navigation
 
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -10,8 +10,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.learningcard.ui.theme.BlueWord
-import com.example.learningcard.ui.theme.PurpleGrey80
+import com.onekamardin.learningcard.ui.theme.BlueWord
+import com.onekamardin.learningcard.ui.theme.PurpleGrey80
 
 
 @Composable

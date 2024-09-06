@@ -1,4 +1,4 @@
-package com.example.learningcard.features
+package com.onekamardin.learningcard.features
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.wrapContentHeight

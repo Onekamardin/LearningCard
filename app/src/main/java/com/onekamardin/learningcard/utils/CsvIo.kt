@@ -1,4 +1,4 @@
-package com.example.learningcard.utils
+package com.onekamardin.learningcard.utils
 
 internal object CsvIo {
 

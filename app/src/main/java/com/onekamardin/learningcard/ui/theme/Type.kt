@@ -1,4 +1,4 @@
-package com.example.learningcard.ui.theme
+package com.onekamardin.learningcard.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,6 +1,5 @@
-package com.example.learningcard.ui.theme
+package com.onekamardin.learningcard.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

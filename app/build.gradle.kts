@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.learningcard"
+    namespace = "com.onekamardin.learningcard"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.learningcard"
+        applicationId = "com.onekamardin.learningcard"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -43,7 +43,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4"
+        kotlinCompilerExtensionVersion = "1.5.12"
     }
     packaging {
         resources {

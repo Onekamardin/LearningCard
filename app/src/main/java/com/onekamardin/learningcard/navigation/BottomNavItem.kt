@@ -1,6 +1,6 @@
-package com.example.learningcard.navigation
+package com.onekamardin.learningcard.navigation
 
-import com.example.learningcard.R
+import com.onekamardin.learningcard.R
 
 sealed class BottomNavItem(val title: String, val iconId: Int, val route: String) {
     object Screen1: BottomNavItem("Screen1", R.drawable.ic, "screen1")

@@ -1,9 +1,9 @@
-package com.example.learningcard.data.repository
+package com.onekamardin.learningcard.data.repository
 
-import com.example.learningcard.data.dao.DictDao
-import com.example.learningcard.data.dao.WordDao
-import com.example.learningcard.data.model.Dict
-import com.example.learningcard.data.model.WordItem
+import com.onekamardin.learningcard.data.dao.DictDao
+import com.onekamardin.learningcard.data.dao.WordDao
+import com.onekamardin.learningcard.data.model.Dict
+import com.onekamardin.learningcard.data.model.WordItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

@@ -1,4 +1,4 @@
-package com.example.learningcard.data.model
+package com.onekamardin.learningcard.data.model
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

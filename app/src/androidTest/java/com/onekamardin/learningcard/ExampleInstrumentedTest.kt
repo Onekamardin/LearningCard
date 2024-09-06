@@ -1,4 +1,4 @@
-package com.example.learningcard
+package com.onekamardin.learningcard
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

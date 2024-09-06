@@ -1,10 +1,10 @@
-package com.example.learningcard.data.dao
+package com.onekamardin.learningcard.data.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.learningcard.data.model.Dict
+import com.onekamardin.learningcard.data.model.Dict
 
 @Dao
 interface DictDao {
