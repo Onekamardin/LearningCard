@@ -15,19 +15,19 @@ class Repository @Inject constructor(
     private val dictDao: DictDao
 ) {
 
-    suspend fun getAllDictionaries(): Flow<List<Dict>> {
+    fun getAllDictionaries(): Flow<List<Dict>> {
         return flow {
             emit(dictDao.getAllDictionaries())
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun getAllWordsByDictId(dictId: Long): Flow<List<WordItem>> {
+    fun getAllWordsByDictId(dictId: Long): Flow<List<WordItem>> {
         return flow {
             emit(wordDao.getAllWordsById(dictId))
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun createDictionary(
+    fun createDictionary(
         title: String, subtitle: String, inside: Int, current: Boolean, wordId: Long
     ): Flow<Long> {
         return flow {
@@ -36,7 +36,7 @@ class Repository @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun createWord(
+    fun createWord(
         name: String,
         translate: String,
         transcription: String,
