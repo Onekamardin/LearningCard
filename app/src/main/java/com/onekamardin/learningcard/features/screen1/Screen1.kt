@@ -43,8 +43,8 @@ fun Screen1(
 
     val pagerState = rememberPagerState(pageCount = { 10 })
     val coroutineScope = rememberCoroutineScope()
-    val dictionaries = viewModel.dictionary.collectAsState(initial = emptyList())
     val words = viewModel.words.collectAsState(initial = emptyList())
+    val dictionaries = viewModel.dictionary.collectAsState(emptyList())
 
 
     Column(
@@ -69,7 +69,7 @@ fun Screen1(
                 }) {
                 Icon(
                     Icons.Default.Settings,
-                    contentDescription = "111",
+                    contentDescription = null,
                     tint = Color.White
                 )
             }
@@ -96,10 +96,11 @@ fun Screen1(
             IconButton(
                 modifier = Modifier.padding(start = 100.dp),
                 onClick = {
+                    viewModel.loadDictionaries()
                 }) {
                 Icon(
                     Icons.Default.Menu,
-                    contentDescription = "111",
+                    contentDescription = null,
                     tint = Color.White
                 )
             }
@@ -144,4 +145,7 @@ fun Screen1(
         }
     }
 }
+
+
+
 

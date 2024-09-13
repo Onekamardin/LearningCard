@@ -17,6 +17,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.onekamardin.learningcard.features.screen1.DictionariesListScreen
 import com.onekamardin.learningcard.ui.theme.BlueWord
 
 @Preview(showBackground = true)
@@ -30,6 +31,7 @@ fun UiWordItem() {
             .clip(RoundedCornerShape(10.dp))
             .background(BlueWord)
     ) {
+        DictionariesListScreen()
         Text(
             modifier = Modifier.padding(start = 20.dp, top = 20.dp),
             text = "Word",

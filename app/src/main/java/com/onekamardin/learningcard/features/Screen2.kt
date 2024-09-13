@@ -11,7 +11,9 @@ import androidx.compose.ui.text.style.TextAlign
 fun Screen2() {
 
     Text(
-        modifier = Modifier.fillMaxSize().wrapContentHeight(),
+        modifier = Modifier
+            .fillMaxSize()
+            .wrapContentHeight(),
         text = "Screen2",
         textAlign = TextAlign.Center)
 }

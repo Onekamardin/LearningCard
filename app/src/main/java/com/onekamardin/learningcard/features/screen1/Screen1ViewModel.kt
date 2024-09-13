@@ -22,6 +22,7 @@ class Screen1ViewModel @Inject constructor(
 
     private val _dictionary = MutableStateFlow(emptyList<Dict>())
     val dictionary = _dictionary.asStateFlow()
+    
 
     fun loadDictionaries() {
         viewModelScope.launch {
