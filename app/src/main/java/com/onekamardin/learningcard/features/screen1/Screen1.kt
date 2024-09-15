@@ -1,5 +1,6 @@
 package com.onekamardin.learningcard.features.screen1
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -32,19 +33,44 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.onekamardin.learningcard.features.UiWordItem
+import com.onekamardin.learningcard.features.main.MainScreenState
+import com.onekamardin.learningcard.navigation.rememberNavigationState
 import com.onekamardin.learningcard.ui.theme.BlueMain
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun Screen1(
     viewModel: Screen1ViewModel = hiltViewModel()
 ) {
 
+//    val words = viewModel.words.collectAsState(initial = emptyList())
+    //val dictionaries = viewModel.dictionary.collectAsState(emptyList())
+    val screenState = viewModel.screenState.collectAsState(MainScreenState.FeedScreen)
+
+    when (screenState.value) {
+        is MainScreenState.FeedScreen -> {
+            FeedScreen()
+        }
+
+        is MainScreenState.DictionariesScreen -> {
+            DictionariesListScreen()
+            BackHandler {
+                viewModel.closeDictionariesScreen()
+            }
+        }
+    }
+
+
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+private fun FeedScreen(
+    viewModel: Screen1ViewModel = hiltViewModel()
+) {
+
     val pagerState = rememberPagerState(pageCount = { 10 })
     val coroutineScope = rememberCoroutineScope()
-    val words = viewModel.words.collectAsState(initial = emptyList())
-    val dictionaries = viewModel.dictionary.collectAsState(emptyList())
 
 
     Column(
@@ -97,6 +123,7 @@ fun Screen1(
                 modifier = Modifier.padding(start = 100.dp),
                 onClick = {
                     viewModel.loadDictionaries()
+                    viewModel.showDictionariesScreen()
                 }) {
                 Icon(
                     Icons.Default.Menu,
