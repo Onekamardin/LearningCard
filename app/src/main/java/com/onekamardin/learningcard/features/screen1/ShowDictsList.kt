@@ -1,5 +1,6 @@
 package com.onekamardin.learningcard.features.screen1
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -19,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.onekamardin.learningcard.data.model.Dict
+import com.onekamardin.learningcard.navigation.rememberNavigationState
 
 
 @Composable
@@ -55,7 +57,7 @@ private fun DictItem(
             Text(
                 text = dict.title,
                 color = Color.White,
-                fontSize = 24.sp
+                fontSize = 36.sp
             )
         }
 

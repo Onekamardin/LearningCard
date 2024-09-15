@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.onekamardin.learningcard.data.model.Dict
 
 class NavigationState(
     val navHostController: NavHostController
@@ -19,7 +20,11 @@ class NavigationState(
         }
     }
 
+    fun navigateFromDictList() {
+        navHostController.navigate(BottomNavItem.Screen1.route)
+    }
 }
+
 
 @Composable
 fun rememberNavigationState(navHostController: NavHostController = rememberNavController()): NavigationState {

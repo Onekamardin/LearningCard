@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.onekamardin.learningcard.data.model.Dict
 import com.onekamardin.learningcard.data.model.WordItem
 import com.onekamardin.learningcard.data.repository.Repository
+import com.onekamardin.learningcard.features.main.MainScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -22,7 +23,21 @@ class Screen1ViewModel @Inject constructor(
 
     private val _dictionary = MutableStateFlow(emptyList<Dict>())
     val dictionary = _dictionary.asStateFlow()
-    
+
+    private val _screenState = MutableStateFlow<MainScreenState>(MainScreenState.FeedScreen)
+    val screenState = _screenState.asStateFlow()
+
+    private var savedState: MainScreenState = MainScreenState.FeedScreen
+
+    fun showDictionariesScreen() {
+        savedState = _screenState.value
+        _screenState.value = MainScreenState.DictionariesScreen(_dictionary.value)
+    }
+
+    fun closeDictionariesScreen() {
+        _screenState.value = savedState
+    }
+
 
     fun loadDictionaries() {
         viewModelScope.launch {
@@ -49,11 +64,7 @@ class Screen1ViewModel @Inject constructor(
     }
 
 
-    fun getAllDictionaries() {
-        viewModelScope.launch {
-            repository.getAllDictionaries()
-        }
-    }
+
 
     fun getAllWordsByDictId(dictId: Long) {
         viewModelScope.launch {
