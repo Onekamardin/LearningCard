@@ -29,7 +29,7 @@ class Screen1ViewModel @Inject constructor(
 
     private var savedState: MainScreenState = MainScreenState.FeedScreen
 
-    fun showDictionariesScreen() {
+    private fun showDictionariesScreen() {
         savedState = _screenState.value
         _screenState.value = MainScreenState.DictionariesScreen(_dictionary.value)
     }
@@ -49,6 +49,7 @@ class Screen1ViewModel @Inject constructor(
                     _dictionary.value = value
                 }
         }
+        showDictionariesScreen()
     }
 
     fun loadWords(dictId: Long) {

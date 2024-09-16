@@ -123,7 +123,6 @@ private fun FeedScreen(
                 modifier = Modifier.padding(start = 100.dp),
                 onClick = {
                     viewModel.loadDictionaries()
-                    viewModel.showDictionariesScreen()
                 }) {
                 Icon(
                     Icons.Default.Menu,
