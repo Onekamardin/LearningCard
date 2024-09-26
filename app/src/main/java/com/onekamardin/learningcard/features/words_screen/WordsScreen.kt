@@ -1,6 +1,5 @@
 package com.onekamardin.learningcard.features.words_screen
 
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -21,8 +20,9 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,44 +33,43 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.onekamardin.learningcard.features.UiWordItem
-import com.onekamardin.learningcard.features.main.MainScreenState
 import com.onekamardin.learningcard.ui.theme.BlueMain
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun WordsScreen(
-    viewModel: WordsScreenViewModel = hiltViewModel()
 ) {
-
 //    val words = viewModel.words.collectAsState(initial = emptyList())
     //val dictionaries = viewModel.dictionary.collectAsState(emptyList())
-    val screenState = viewModel.screenState.collectAsState(MainScreenState.FeedScreen)
+    // val screenState = viewModel.screenState.collectAsState(MainScreenState.FeedScreen)
 
-    when (screenState.value) {
-        is MainScreenState.FeedScreen -> {
-            FeedScreen()
-        }
+//    when (screenState.value) {
+//        is MainScreenState.FeedScreen -> {
+//            FeedScreen()
+//        }
+//
+//        is MainScreenState.DictionariesScreen -> {
+//            DictionariesListScreen()
+//            BackHandler {
+//                viewModel.closeDictionariesScreen()
+//            }
+//        }
+//    }
+    val sheetState = rememberModalBottomSheetState()
 
-        is MainScreenState.DictionariesScreen -> {
-            DictionariesListScreen()
-            BackHandler {
-                viewModel.closeDictionariesScreen()
-            }
-        }
-    }
-
-
+    WordsScreenContent()
+    DictionariesListScreen(sheetState = sheetState)
 }
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-private fun FeedScreen(
+private fun WordsScreenContent(
     viewModel: WordsScreenViewModel = hiltViewModel()
 ) {
 
     val pagerState = rememberPagerState(pageCount = { 10 })
     val coroutineScope = rememberCoroutineScope()
-
 
     Column(
         modifier = Modifier
@@ -121,6 +120,7 @@ private fun FeedScreen(
             IconButton(
                 modifier = Modifier.padding(start = 100.dp),
                 onClick = {
+                    viewModel.isBottomSheetOpened.value = true
                     viewModel.loadDictionaries()
                 }) {
                 Icon(

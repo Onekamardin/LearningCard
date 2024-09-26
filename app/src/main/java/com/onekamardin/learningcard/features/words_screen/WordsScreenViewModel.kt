@@ -38,6 +38,7 @@ class WordsScreenViewModel @Inject constructor(
         _screenState.value = savedState
     }
 
+    var isBottomSheetOpened = MutableStateFlow(false)
 
     fun loadDictionaries() {
         viewModelScope.launch {
@@ -49,7 +50,7 @@ class WordsScreenViewModel @Inject constructor(
                     _dictionary.value = value
                 }
         }
-        showDictionariesScreen()
+        //showDictionariesScreen()
     }
 
     fun loadWords(dictId: Long) {
