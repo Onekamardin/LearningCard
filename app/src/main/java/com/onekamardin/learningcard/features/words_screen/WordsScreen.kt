@@ -1,4 +1,4 @@
-package com.onekamardin.learningcard.features.screen1
+package com.onekamardin.learningcard.features.words_screen
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -34,13 +34,12 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.onekamardin.learningcard.features.UiWordItem
 import com.onekamardin.learningcard.features.main.MainScreenState
-import com.onekamardin.learningcard.navigation.rememberNavigationState
 import com.onekamardin.learningcard.ui.theme.BlueMain
 import kotlinx.coroutines.launch
 
 @Composable
-fun Screen1(
-    viewModel: Screen1ViewModel = hiltViewModel()
+fun WordsScreen(
+    viewModel: WordsScreenViewModel = hiltViewModel()
 ) {
 
 //    val words = viewModel.words.collectAsState(initial = emptyList())
@@ -66,7 +65,7 @@ fun Screen1(
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun FeedScreen(
-    viewModel: Screen1ViewModel = hiltViewModel()
+    viewModel: WordsScreenViewModel = hiltViewModel()
 ) {
 
     val pagerState = rememberPagerState(pageCount = { 10 })

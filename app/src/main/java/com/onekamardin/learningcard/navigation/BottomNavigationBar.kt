@@ -17,7 +17,7 @@ import com.onekamardin.learningcard.ui.theme.PurpleGrey80
 @Composable
 fun BottomNavigationBar(navigationState: NavigationState) {
     val listBottomItem = listOf(
-        BottomNavItem.Screen1,
+        BottomNavItem.WordsScreen,
         BottomNavItem.Screen2,
         BottomNavItem.Screen3,
         BottomNavItem.Screen4

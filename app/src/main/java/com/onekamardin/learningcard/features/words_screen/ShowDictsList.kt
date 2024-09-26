@@ -1,6 +1,5 @@
-package com.onekamardin.learningcard.features.screen1
+package com.onekamardin.learningcard.features.words_screen
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -20,12 +19,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.onekamardin.learningcard.data.model.Dict
-import com.onekamardin.learningcard.navigation.rememberNavigationState
 
 
 @Composable
 fun DictionariesListScreen(
-    viewModel: Screen1ViewModel = hiltViewModel()
+    viewModel: WordsScreenViewModel = hiltViewModel()
 ) {
     val dictionaries = viewModel.dictionary.collectAsState(listOf())
 

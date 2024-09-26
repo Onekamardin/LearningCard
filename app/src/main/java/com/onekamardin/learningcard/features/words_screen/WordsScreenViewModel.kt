@@ -1,4 +1,4 @@
-package com.onekamardin.learningcard.features.screen1
+package com.onekamardin.learningcard.features.words_screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class Screen1ViewModel @Inject constructor(
+class WordsScreenViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 

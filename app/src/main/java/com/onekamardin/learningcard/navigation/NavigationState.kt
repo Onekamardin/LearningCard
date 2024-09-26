@@ -21,7 +21,7 @@ class NavigationState(
     }
 
     fun navigateFromDictList() {
-        navHostController.navigate(BottomNavItem.Screen1.route)
+        navHostController.navigate(BottomNavItem.WordsScreen.route)
     }
 }
 

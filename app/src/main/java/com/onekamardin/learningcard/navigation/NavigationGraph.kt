@@ -17,7 +17,7 @@ fun NavigationGraph(
 ) {
     NavHost(
         navController = navHostController,
-        startDestination = BottomNavItem.Screen1.route,
+        startDestination = BottomNavItem.WordsScreen.route,
         enterTransition = {
             slideIntoContainer(
                 towards = AnimatedContentTransitionScope.SlideDirection.Companion.Left,
@@ -31,7 +31,7 @@ fun NavigationGraph(
             )
         })
     {
-        composable(BottomNavItem.Screen1.route) {
+        composable(BottomNavItem.WordsScreen.route) {
             screen1Content()
         }
         composable(BottomNavItem.Screen2.route) {
