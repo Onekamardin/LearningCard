@@ -10,7 +10,7 @@ import androidx.navigation.compose.composable
 @Composable
 fun NavigationGraph(
     navHostController: NavHostController,
-    wordsScreenContent: @Composable () -> Unit,
+    screen1Content: @Composable () -> Unit,
     screen2Content: @Composable () -> Unit,
     screen3Content: @Composable () -> Unit,
     screen4Content: @Composable () -> Unit
@@ -32,7 +32,7 @@ fun NavigationGraph(
         })
     {
         composable(BottomNavItem.WordsScreen.route) {
-            wordsScreenContent()
+            screen1Content()
         }
         composable(BottomNavItem.Screen2.route) {
             screen2Content()

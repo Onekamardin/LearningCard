@@ -24,20 +24,21 @@ class WordsScreenViewModel @Inject constructor(
     private val _dictionary = MutableStateFlow(emptyList<Dict>())
     val dictionary = _dictionary.asStateFlow()
 
-    private val _screenState = MutableStateFlow<MainScreenState>(MainScreenState.FeedScreen)
-    val screenState = _screenState.asStateFlow()
+//    private val _screenState = MutableStateFlow<MainScreenState>(MainScreenState.FeedScreen)
+//    val screenState = _screenState.asStateFlow()
+//
+//    private var savedState: MainScreenState = MainScreenState.FeedScreen
+//
+//    private fun showDictionariesScreen() {
+//        savedState = _screenState.value
+//        _screenState.value = MainScreenState.DictionariesScreen(_dictionary.value)
+//    }
+//
+//    fun closeDictionariesScreen() {
+//        _screenState.value = savedState
+//    }
 
-    private var savedState: MainScreenState = MainScreenState.FeedScreen
-
-    private fun showDictionariesScreen() {
-        savedState = _screenState.value
-        _screenState.value = MainScreenState.DictionariesScreen(_dictionary.value)
-    }
-
-    fun closeDictionariesScreen() {
-        _screenState.value = savedState
-    }
-
+    var isBottomSheetOpened = MutableStateFlow(false)
 
     fun loadDictionaries() {
         viewModelScope.launch {
@@ -49,7 +50,6 @@ class WordsScreenViewModel @Inject constructor(
                     _dictionary.value = value
                 }
         }
-        showDictionariesScreen()
     }
 
     fun loadWords(dictId: Long) {

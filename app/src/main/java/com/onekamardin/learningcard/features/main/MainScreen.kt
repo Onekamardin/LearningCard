@@ -25,7 +25,7 @@ fun MainScreen() {
     ) { paddingValues ->
         NavigationGraph(
             navHostController = navigationState.navHostController,
-            wordsScreenContent = { WordsScreen() },
+            screen1Content = { WordsScreen() },
             screen2Content = { Screen2() },
             screen3Content = { Screen3() },
             screen4Content = { Screen4() },
