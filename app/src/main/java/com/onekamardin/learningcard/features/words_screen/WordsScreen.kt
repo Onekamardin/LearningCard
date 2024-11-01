@@ -17,6 +17,8 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Settings
@@ -124,7 +126,7 @@ private fun WordsScreenContent(
                     viewModel.loadDictionaries()
                 }) {
                 Icon(
-                    Icons.Default.Menu,
+                    Icons.AutoMirrored.Filled.KeyboardArrowRight,
                     contentDescription = null,
                     tint = Color.White
                 )
