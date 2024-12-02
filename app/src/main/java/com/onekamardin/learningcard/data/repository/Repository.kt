@@ -21,6 +21,7 @@ class Repository @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 
+
     fun getAllWordsByDictId(dictId: Long): Flow<List<WordItem>> {
         return flow {
             emit(wordDao.getAllWordsById(dictId))

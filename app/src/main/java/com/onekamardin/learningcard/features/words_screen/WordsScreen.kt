@@ -2,6 +2,7 @@ package com.onekamardin.learningcard.features.words_screen
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -100,7 +101,13 @@ private fun WordsScreenContent(
                 )
             }
         }
-        Row(verticalAlignment = Alignment.CenterVertically) {
+        Row(
+            modifier = Modifier.clickable {
+                viewModel.isBottomSheetOpened.value = true
+                viewModel.loadDictionaries()
+            },
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Column {
                 Text(
                     text = "Англо-русский",
@@ -121,10 +128,8 @@ private fun WordsScreenContent(
             }
             IconButton(
                 modifier = Modifier.padding(start = 100.dp),
-                onClick = {
-                    viewModel.isBottomSheetOpened.value = true
-                    viewModel.loadDictionaries()
-                }) {
+                onClick = { }
+            ) {
                 Icon(
                     Icons.AutoMirrored.Filled.KeyboardArrowRight,
                     contentDescription = null,

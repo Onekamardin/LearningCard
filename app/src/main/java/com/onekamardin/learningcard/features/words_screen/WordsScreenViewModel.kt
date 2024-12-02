@@ -24,6 +24,7 @@ class WordsScreenViewModel @Inject constructor(
     private val _dictionary = MutableStateFlow(emptyList<Dict>())
     val dictionary = _dictionary.asStateFlow()
 
+
 //    private val _screenState = MutableStateFlow<MainScreenState>(MainScreenState.FeedScreen)
 //    val screenState = _screenState.asStateFlow()
 //
